@@ -14,7 +14,8 @@ struct student {
 typedef struct Student {
     char name[100];
     int roll;
-    float cgpa;
+    char gender;
+    int m1, m2, m3, m4, m5;
 } stu;
 
 typedef struct address {
@@ -30,12 +31,17 @@ typedef struct vector {
     int z;
 } vec;
 
+typedef struct distance {
+    int km;
+    int m;
+} dist;
 
-/*
+
+
+
 void printstuinfo(stu s);                                                                   //Declaration of structural function
 
-
-
+/*
 int main() {
     struct student s1;                                                                      //Initializing structure
     printf("Enter name: ");
@@ -51,41 +57,93 @@ int main() {
 }
 */
 
+
 /*
 int main() {
-    int n, i;
+    int n, i, num, cnt = 0;
     printf("Enter number of students: ");
     scanf("%d", &n);
     
-    struct student s[n];                                                                     //Structure array
+    stu s[n];                                                                               //Structure array
 
+    printf("Enter students data:\n");
     for (i = 0; i < n; i++) {
         printf("Enter name: ");
         scanf(" %[^\n]", s[i].name);
         printf("Enter roll no.: ");
         scanf("%d", &s[i].roll);
-        printf("Enter cgpa: ");
-        scanf("%f", &s[i].cgpa);
+        printf("Enter gender(M/F): ");
+        scanf(" %c", &s[i].gender);
+        printf("Enter marks in subject 1: ");
+        scanf("%d", &s[i].m1);
+        printf("Enter marks in subject 2: ");
+        scanf("%d", &s[i].m2);
+        printf("Enter marks in subject 3: ");
+        scanf("%d", &s[i].m3);
+        printf("Enter marks in subject 4: ");
+        scanf("%d", &s[i].m4);
+        printf("Enter marks in subject 5: ");
+        scanf("%d", &s[i].m5);
     }
+    printf("\n");
+    
+    printf("Enter subject number whose failed list to be displayed: ");
+    scanf("%d", &num);
 
     printf("\nStudents info:\n");
     for (i = 0; i < n; i++) {
         printstuinfo(s[i]);
     }
 
+    for (i = 0; i < n; i++) {
+        if (num == 1) {
+            if (s[i].m1 < 40) {
+                cnt++;
+            }
+        }
+        else if (num == 2) {
+            if (s[i].m2 < 40) {
+                cnt++;
+            }
+        }
+        else if (num == 3) {
+            if (s[i].m3 < 40) {
+                cnt++;
+            }
+        }
+        else if (num == 4) {
+            if (s[i].m4 < 40) {
+                cnt++;
+            }
+        }
+        else if (num == 5) {
+            if (s[i].m5 < 40) {
+                cnt++;
+            }
+        }
+    }
+    printf("List of failed students: %d\n", cnt);
+
     return 0;
 }
-
-
 
 void printstuinfo(stu s) {
     printf("Name: %s\n", s.name);
     printf("Roll No.: %d\n", s.roll);
-    printf("CGPA: %.2f\n", s.cgpa);
+    printf("Gender: %c\n", s.gender);
+    printf("Marks in Subject 1: %d\n", s.m1);
+    printf("Marks in Subject 2: %d\n", s.m2);
+    printf("Marks in Subject 3: %d\n", s.m3);
+    printf("Marks in Subject 4: %d\n", s.m4);
+    printf("Marks in Subject 5: %d\n", s.m5);
+    printf("Total marks: %d\n", s.m1 + s.m2 + s.m3 + s.m4 + s.m5);
 }
 */
 
 
+
+
+/*
 int main() {
     adrs p[5];
     int i;
@@ -108,6 +166,8 @@ int main() {
 
     return 0;
 }
+*/
+
 
 
 
@@ -134,5 +194,40 @@ void vectorsum(vec v1, vec v2, vec *sum) {
 }
 void printvector(vec *s) {
     printf("%di + %dj + %dz", (*s).x, (*s).y, (*s).z);
+}
+*/
+
+
+
+
+/*
+int main() {
+    dist d1, d2;
+    int sum_km, sum_m, temp;
+
+    printf("Enter data for 1st distance:\n");
+    printf("Enter km: ");
+    scanf("%d", &d1.km);
+    printf("Enter m: ");
+    scanf("%d", &d1.m);
+
+    printf("Enter data for 2nd distance:\n");
+    printf("Enter km: ");
+    scanf("%d", &d2.km);
+    printf("Enter m: ");
+    scanf("%d", &d2.m);
+
+    sum_km = d1.km + d2.km;
+    sum_m = d1.m + d2.m;
+
+    if (sum_m >= 1000) {
+        temp = sum_m / 1000;
+        sum_km += temp;
+        sum_m -= (temp * 1000);
+    }
+
+    printf("Sum of distances = %dkm %dm\n", sum_km, sum_m);
+
+    return 0;
 }
 */
