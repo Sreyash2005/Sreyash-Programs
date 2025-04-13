@@ -36,6 +36,10 @@ typedef struct distance {
     int m;
 } dist;
 
+typedef struct time {
+    int hr, min, sec;
+} time;
+
 
 
 
@@ -231,3 +235,28 @@ int main() {
     return 0;
 }
 */
+
+
+
+
+void addtime(time t1, time t2);
+
+int main() {
+    time t1, t2;
+
+    printf("Enter time 1(hr:min:sec): ");
+    scanf("%d:%d:%d", &t1.hr, &t1.min, &t1.sec);
+
+    printf("Enter time 2(hr:min:sec): ");
+    scanf("%d:%d:%d", &t1.hr, &t1.min, &t1.sec);
+}
+
+void addtime(time t1, time t2) {
+    int sum_hr, sum_min, sum_sec;
+
+    sum_hr = t1.hr + t2.hr;
+    sum_min = t1.min + t2.min;
+    sum_sec = t1.sec + t2.sec;
+
+    
+}
