@@ -23,6 +23,7 @@ int main() {
     printf("Enter your full name: ");
     fgets(full_name, 100, stdin);                                // Takes a sentence or no. of words in single input
     puts(full_name);                                             // Prints a sentence or no. of words through a single variable
+    printf("%s", full_name);
 
     return 0;
 }
@@ -57,7 +58,7 @@ int main() {                                                     // finding leng
 
 int main() {
     char str[] = "I am sreyash";
-    char fst_str[100] = "Hello";
+    char fst_str[100] = "Hello ";
     char sec_str[] = "World";
 
     int len = strlen(str);                                       // Return length using library functions
@@ -76,6 +77,25 @@ int main() {
 
 
 
+/*
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100];
+
+    fgets(str, 100, stdin);
+
+    printf("%c", str[1]);
+
+    return 0;
+}
+*/
+
+
+
+
+/*
 #include <stdio.h>
 #include <string.h>
 
@@ -183,3 +203,4 @@ void convert_cap_to_small(char str_copy[])
         i++;
     }
 }
+*/

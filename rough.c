@@ -263,10 +263,37 @@
 //     return 0;
 // }
 
+// int main() {
+//     int arr[3] = {1, 2, 3};
+
+//     printf("%d", arr[3]);
+
+//     return 0;
+// }
+
+
+
+int Sum(int n);
+
 int main() {
-    int arr[3] = {1, 2, 3};
+    int sum, n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
 
-    printf("%d", arr[3]);
+    sum = Sum(n);
 
+    printf("%d", sum);
     return 0;
+}
+
+int Sum(int n) {
+    if (n == 0) {
+        return 0;
+    }
+    int s1, s2;
+    
+    s1 = Sum(n - 1);
+    s2 = s1 + n;
+
+    return s2;
 }

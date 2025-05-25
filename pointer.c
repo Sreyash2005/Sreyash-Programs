@@ -4,10 +4,10 @@
 int main() {
     int age = 19;
     int *ptr = &age;
-    *ptr = 22
+    *ptr = 22;
     int _age_ = *ptr;
 
-    printf("%d %d %p %u %u", _age_, *ptr, &age, ptr, &ptr);
+    printf("%d %d %u %p %u", _age_, *ptr, &age, ptr, &ptr);
     return 0;
 }
 */
@@ -153,5 +153,29 @@ void swap_three(int *a, int *b, int *c) {
     *a = *c;
     *b = temp1;
     *c = temp2;
+}
+*/
+
+
+
+
+/*
+#include <stdio.h>
+
+int main() {
+    int x, y;
+    int *ptr1, *ptr2;
+
+    ptr1 = &x;
+    ptr2 = &y;
+    
+    printf("Enter a value: ");
+    scanf("%d", ptr1);
+    printf( "Enter a value: ");
+    scanf("%d", ptr2);
+    
+    printf("Product is %d\n", (*ptr1) * (*ptr2));
+
+    return 0;
 }
 */
