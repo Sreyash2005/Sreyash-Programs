@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 
 void printHello();                                      // Function declaration
 void printGoodBye();
@@ -21,6 +22,8 @@ void insert(int arr[], int n, int num, int pos);
 void delete_num(int arr[], int n, int pos);
 int search(int arr[], int n, int num);
 int len_str(char arr[]);
+void salting(char password[], char salt[]);
+void slice(char str[100], int n, int m);
 // Recursive Function
 void printHelloWorld(int cnt);
 int SumN(int n);
@@ -57,27 +60,44 @@ int fibonacciN(int n);
 //     return 0;
 // }
 
+// int main() {
+//     int arr[100], num, i = 0;
+//     char ans1, ans2;
+
+//     while (ans1 != 'n' && ans1 == 'y') {
+//         printf("Enter number%d: ", i + 1);
+//         scanf("%d", &arr[i]);
+//         printf("Do you want to input more(y/n): ");
+//         scanf(" %c", &ans1);
+//         i++;
+//     }
+
+//     while (ans2 != 'n' && ans2 == 'y') {
+//         printf("Enter a number to be searched in array: ");
+//         scanf("%d", &num);
+        
+//         search(arr, i, num);
+        
+//         printf("Do you want to input more(y/n): ");
+//         scanf(" %c", &ans2);
+//     }
+//     return 0;
+// }
+
 int main() {
-    int arr[100], num, i = 0;
-    char ans1, ans2;
+    char str[100];
+    int n, m;
 
-    while (ans1 != 'n' && ans1 == 'y') {
-        printf("Enter number%d: ", i + 1);
-        scanf("%d", &arr[i]);
-        printf("Do you want to input more(y/n): ");
-        scanf(" %c", &ans1);
-        i++;
-    }
+    printf("Enter a string: ");
+    fgets(str, 100, stdin);
 
-    while (ans2 != 'n' && ans2 == 'y') {
-        printf("Enter a number to be searched in array: ");
-        scanf("%d", &num);
-        
-        search(arr, i, num);
-        
-        printf("Do you want to input more(y/n): ");
-        scanf(" %c", &ans2);
-    }
+    printf("Enter the starting and ending index: ");
+    scanf("%d %d", &n, &m);
+
+    printf("%s", str);
+
+    slice(str, n, m);
+
     return 0;
 }
 
@@ -347,4 +367,20 @@ int fibonacciN(int n) {
     int fibN = fibNm1 + fibNm2;
 
     return fibN;
+}
+
+void salting(char password[], char salt[]) {
+    strcat(password, salt);
+}
+
+void slice(char str[100], int n, int m) {
+    int i, j;
+    char newstr[100];
+
+    for (i = 0, j = n; j <= m; i++, j++) {
+        newstr[i] = str[j];
+    }
+    newstr[i] = '\0';
+
+    printf("%s", newstr);
 }

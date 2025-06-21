@@ -273,27 +273,114 @@
 
 
 
-int Sum(int n);
+// int Sum(int n);
+
+// int main() {
+//     int sum, n;
+//     printf("Enter a number: ");
+//     scanf("%d", &n);
+
+//     sum = Sum(n);
+
+//     printf("%d", sum);
+//     return 0;
+// }
+
+// int Sum(int n) {
+//     if (n == 0) {
+//         return 0;
+//     }
+//     int s1, s2;
+    
+//     s1 = Sum(n - 1);
+//     s2 = s1 + n;
+
+//     return s2;
+// }
+
+
+
+
+
+#include <stdio.h>
+
+void SORT_ELE(int r, int c, int arr[r][c]);
 
 int main() {
-    int sum, n;
-    printf("Enter a number: ");
-    scanf("%d", &n);
+    int r, c, i, j;
+    printf("Enter no. of row and column: ");
+    scanf("%d %d", &r, &c);
 
-    sum = Sum(n);
+    int arr[r][c];
 
-    printf("%d", sum);
+    printf("Enter the elements of matrix: ");
+    for (i = 0; i < r; i++) {
+        for (j = 0; j < c; j++) {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    printf("The matrix is\n");
+    for (i = 0; i < r; i++) {
+        for (j = 0; j < c; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+
+    SORT_ELE(r, c, arr);
+
+    printf("The sorted matrix is\n");
+    for (i = 0; i < r; i++) {
+        for (j = 0; j < c; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+
     return 0;
 }
 
-int Sum(int n) {
-    if (n == 0) {
-        return 0;
-    }
-    int s1, s2;
-    
-    s1 = Sum(n - 1);
-    s2 = s1 + n;
+void SORT_ELE(int r, int c, int arr[r][c]) {
+    int i, j, a, b, x, y, smallest = arr[0][0], found;
+    int temp[r][c];
 
-    return s2;
+    for (i = 0; i < r; i++) {
+        for (j = 0; j < c; j++) {
+            temp[i][j] = 0;
+        }
+    }
+
+    for (a = 0; a < r; a++) {
+        for (b = 0; b < c; b++) {
+            for (i = 0; i < r; i++) {
+                for (j = 0; j < c; j++) {
+                    found = 0;
+
+                    if (arr[i][j] < smallest) {
+                        for (x = 0; x < r; x++) {
+                            for (y = 0; y < c; y++) {
+                                if (temp[x][y] == arr[i][j]) {
+                                    found = 1;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (found == 0) {
+                            smallest = arr[i][j];
+                        }
+                    }
+                }
+            }
+            
+            temp[a][b] = smallest;
+        }
+    }
+
+    for (i = 0; i < r; i++) {
+        for (j = 0; j < c; j++) {
+            arr[i][j] = temp[i][j];
+        }
+    }
 }

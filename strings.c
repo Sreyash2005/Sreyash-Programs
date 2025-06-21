@@ -204,3 +204,47 @@ void convert_cap_to_small(char str_copy[])
     }
 }
 */
+
+
+
+
+
+
+#include <stdio.h>
+
+void salting(char password[], char salt[]);
+
+int main() {
+    char password[100], salt[100];
+
+    printf("Enter a password: ");
+    fgets(password, 100, stdin);
+    printf("Enter a salt: ");
+    fgets(salt, 100, stdin);
+
+    printf("%s", password);
+    printf("%s", salt);
+
+    salting(password, salt);
+    
+    printf("%s", password);
+
+    return 0;
+}
+
+void salting(char password[], char salt[]) {
+    int i = 0, j = 0;
+
+    while (password[i] != '\0') {
+        if (password[i + 1] == '\0') {
+            while (salt[j] != '\0') {
+                password[i + j] = salt[j];
+                j++;
+            }
+            break;
+        }
+        i++;
+    }
+
+    password[i + j] = '\0';
+}
