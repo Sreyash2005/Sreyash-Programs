@@ -39,14 +39,14 @@ int fibonacciN(int n);
 
 
 
-// int main() {                                           // Function call
-//     int num;                                           // here num is an argument/actual parameter
-//     printf("Enter number: ");
-//     scanf("%d", &num);
+int main() {                                           // Function call
+    int num;                                           // here num is an argument/actual parameter
+    printf("Enter number: ");
+    scanf("%d", &num);
 
-//     printf("%d", fibonacciN(num));
-//     return 0;
-// }
+    fibonacci(num);
+    return 0;
+}
 
 // int main() {
 //     int x, y;
@@ -84,22 +84,22 @@ int fibonacciN(int n);
 //     return 0;
 // }
 
-int main() {
-    char str[100];
-    int n, m;
+// int main() {
+//     char str[100];
+//     int n, m;
 
-    printf("Enter a string: ");
-    fgets(str, 100, stdin);
+//     printf("Enter a string: ");
+//     fgets(str, 100, stdin);
 
-    printf("Enter the starting and ending index: ");
-    scanf("%d %d", &n, &m);
+//     printf("Enter the starting and ending index: ");
+//     scanf("%d %d", &n, &m);
 
-    printf("%s", str);
+//     printf("%s", str);
 
-    slice(str, n, m);
+//     slice(str, n, m);
 
-    return 0;
-}
+//     return 0;
+// }
 
 // int main() {
 //     char name[100];
