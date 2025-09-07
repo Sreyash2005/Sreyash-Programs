@@ -52,11 +52,10 @@ int pop() {
     }
     else {
         Node *temp = top;
-        int tmp = top->data;
 
         top = top->next;
+        return temp->data;
         free(temp);    
-        return tmp;
     }
 }
 
