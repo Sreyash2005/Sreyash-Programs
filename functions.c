@@ -24,6 +24,7 @@ int search(int arr[], int n, int num);
 int len_str(char arr[]);
 void salting(char password[], char salt[]);
 void slice(char str[100], int n, int m);
+void bubble_sort(int arr[], int n);
 // Recursive Function
 void printHelloWorld(int cnt);
 int SumN(int n);
@@ -326,7 +327,20 @@ int len_str(char arr[]) {
     return cnt;
 }
 
-// Recursive Function
+void bubble_sort(int arr[], int n) {
+    int i, j;
+    for (i = 0; i < (n - 1); i++) {
+        for (j = 0; j < (n - i - 1); j++) {
+            if (arr[j] > arr[j + 1]) {
+                swap(arr[j], arr[j + 1]);
+            }
+        }
+    }
+}
+
+
+// Recursive Function //
+
 
 void printHelloWorld(int cnt) {                     
     if (cnt == 0) {
