@@ -13,6 +13,7 @@ int pop();
 int peek();
 int isEmpty();
 void display();
+void add();
 
 
 
@@ -89,4 +90,14 @@ void display() {
             current = current->next;
         }
     }
+}
+
+void add() {
+    int x, y, sum;
+    x = pop();
+    y = pop();
+
+    sum = x + y;
+
+    push(sum);
 }

@@ -302,85 +302,104 @@
 
 
 
-#include <stdio.h>
+// #include <stdio.h>
 
-void SORT_ELE(int r, int c, int arr[r][c]);
+// void SORT_ELE(int r, int c, int arr[r][c]);
 
-int main() {
-    int r, c, i, j;
-    printf("Enter no. of row and column: ");
-    scanf("%d %d", &r, &c);
+// int main() {
+//     int r, c, i, j;
+//     printf("Enter no. of row and column: ");
+//     scanf("%d %d", &r, &c);
 
-    int arr[r][c];
+//     int arr[r][c];
 
-    printf("Enter the elements of matrix: ");
-    for (i = 0; i < r; i++) {
-        for (j = 0; j < c; j++) {
-            scanf("%d", &arr[i][j]);
-        }
-    }
+//     printf("Enter the elements of matrix: ");
+//     for (i = 0; i < r; i++) {
+//         for (j = 0; j < c; j++) {
+//             scanf("%d", &arr[i][j]);
+//         }
+//     }
 
-    printf("The matrix is\n");
-    for (i = 0; i < r; i++) {
-        for (j = 0; j < c; j++) {
-            printf("%d ", arr[i][j]);
-        }
-        printf("\n");
-    }
+//     printf("The matrix is\n");
+//     for (i = 0; i < r; i++) {
+//         for (j = 0; j < c; j++) {
+//             printf("%d ", arr[i][j]);
+//         }
+//         printf("\n");
+//     }
 
-    SORT_ELE(r, c, arr);
+//     SORT_ELE(r, c, arr);
 
-    printf("The sorted matrix is\n");
-    for (i = 0; i < r; i++) {
-        for (j = 0; j < c; j++) {
-            printf("%d ", arr[i][j]);
-        }
-        printf("\n");
-    }
+//     printf("The sorted matrix is\n");
+//     for (i = 0; i < r; i++) {
+//         for (j = 0; j < c; j++) {
+//             printf("%d ", arr[i][j]);
+//         }
+//         printf("\n");
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
 
-void SORT_ELE(int r, int c, int arr[r][c]) {
-    int i, j, a, b, x, y, smallest = arr[0][0], found;
-    int temp[r][c];
+// void SORT_ELE(int r, int c, int arr[r][c]) {
+//     int i, j, a, b, x, y, smallest = arr[0][0], found;
+//     int temp[r][c];
 
-    for (i = 0; i < r; i++) {
-        for (j = 0; j < c; j++) {
-            temp[i][j] = 0;
-        }
-    }
+//     for (i = 0; i < r; i++) {
+//         for (j = 0; j < c; j++) {
+//             temp[i][j] = 0;
+//         }
+//     }
 
-    for (a = 0; a < r; a++) {
-        for (b = 0; b < c; b++) {
-            for (i = 0; i < r; i++) {
-                for (j = 0; j < c; j++) {
-                    found = 0;
+//     for (a = 0; a < r; a++) {
+//         for (b = 0; b < c; b++) {
+//             for (i = 0; i < r; i++) {
+//                 for (j = 0; j < c; j++) {
+//                     found = 0;
 
-                    if (arr[i][j] < smallest) {
-                        for (x = 0; x < r; x++) {
-                            for (y = 0; y < c; y++) {
-                                if (temp[x][y] == arr[i][j]) {
-                                    found = 1;
-                                    break;
-                                }
-                            }
-                        }
+//                     if (arr[i][j] < smallest) {
+//                         for (x = 0; x < r; x++) {
+//                             for (y = 0; y < c; y++) {
+//                                 if (temp[x][y] == arr[i][j]) {
+//                                     found = 1;
+//                                     break;
+//                                 }
+//                             }
+//                         }
 
-                        if (found == 0) {
-                            smallest = arr[i][j];
-                        }
-                    }
-                }
-            }
+//                         if (found == 0) {
+//                             smallest = arr[i][j];
+//                         }
+//                     }
+//                 }
+//             }
             
-            temp[a][b] = smallest;
-        }
-    }
+//             temp[a][b] = smallest;
+//         }
+//     }
 
-    for (i = 0; i < r; i++) {
-        for (j = 0; j < c; j++) {
-            arr[i][j] = temp[i][j];
+//     for (i = 0; i < r; i++) {
+//         for (j = 0; j < c; j++) {
+//             arr[i][j] = temp[i][j];
+//         }
+//     }
+// }
+
+
+
+
+
+void reverseOddPos(int arr[], int n) {
+    int i, dig, stk[n], top = -1;
+    for (i = 1; i < n; i += 2) {
+        while (dig != 0) {
+            dig = arr[i] / 10;
+            push(stk, dig);
+        }
+        arr[i] = 0;
+        while (isEmpty(stk) != 0) {
+            dig = pop();
+            arr[i] = (arr[i] * 10) + dig;
         }
     }
 }

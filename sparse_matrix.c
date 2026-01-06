@@ -73,21 +73,22 @@ int count_nz(int row, int col, int mat[row][col]) {
 
 void convert_trad_triplet(int row, int col, int trad[row][col]) {
     if (is_sparse(row, col, trad) == 1) {
-        int i, j, x = 1, nz = count_nz(row, col, trad);
+        int i, j, k, nz = count_nz(row, col, trad);
         
         int tri[nz + 1][3];
 
         tri[0][0] = row;
         tri[0][1] = col;
         tri[0][2] = nz;
+        k = 1;
 
         for (i = 0; i < row; i++) {
             for (j = 0; j < col; j++) {
                 if (trad[i][j] != 0) {
-                    tri[x][0] = i;
-                    tri[x][1] = j;
-                    tri[x][2] = trad[i][j];
-                    x++;
+                    tri[k][0] = i;
+                    tri[k][1] = j;
+                    tri[k][2] = trad[i][j];
+                    k++;
                 }
             }
         }
@@ -143,9 +144,9 @@ void transpose_triplet(int tri1[][3]) {
     for (i = 0; i <= nz; i++) {
         for (j = 1; j <= nz; j++) {
             if (tri1[j][1] == i) {
-                tri2[k][0] = tri1[i][1];
-                tri2[k][1] = tri1[i][0];
-                tri2[k][2] = tri1[i][2];
+                tri2[k][0] = tri1[j][1];
+                tri2[k][1] = tri1[j][0];
+                tri2[k][2] = tri1[j][2];
                 k++;
             }
         }
